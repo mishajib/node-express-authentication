@@ -1,0 +1,30 @@
+<%- include('../layouts/header') %>
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">
+            Thanks for registering, please login with your credentials
+        </h4>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered table-stripped table-hover">
+            <tr>
+                <th>Email</th>
+                <td><%= user.email %></td>
+            </tr>
+
+            <tr>
+                <th>Username</th>
+                <td><%= user.username %></td>
+            </tr>
+
+            <tr>
+                <th>password</th>
+                <td><%= password %></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<%- include('../layouts/footer') %>

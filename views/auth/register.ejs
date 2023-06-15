@@ -1,0 +1,113 @@
+<%- include('../layouts/header') %>
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title text-center">
+            User Registration
+        </h4>
+    </div>
+
+    <% if (errorSingleMsg) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= errorSingleMsg %>
+        </div>
+    <% } %>
+
+    <% if (successMsg) { %>
+        <div class="alert alert-success" role="alert">
+            <%= successMsg %>
+        </div>
+    <% } %>
+
+    <form action="/register" method="POST">
+        <div class="card-body">
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">
+                    Name
+                </label>
+                <input type="text" name="name" id="name"
+                       class="form-control <%= validationErrors.name ? 'is-invalid' : '' %>"
+                       placeholder="Enter name"
+                       value="<%= inputValues.name || '' %>" autofocus>
+                <% if (validationErrors.name) { %>
+                    <div class="invalid-feedback">
+                        <%= validationErrors.name %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="username" class="form-label">
+                    Username
+                </label>
+                <input type="text" name="username" id="username"
+                       class="form-control <%= validationErrors.username ? 'is-invalid' : '' %>"
+                       placeholder="Enter username"
+                       value="<%= inputValues.username || '' %>">
+                <% if (validationErrors.username) { %>
+                    <div class="invalid-feedback">
+                        <%= validationErrors.username %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="email" class="form-label">
+                    Email
+                </label>
+                <input type="text" name="email" id="email"
+                       class="form-control <%= validationErrors.email ? 'is-invalid' : '' %>"
+                       placeholder="Enter email"
+                       value="<%= inputValues.email || '' %>">
+                <% if (validationErrors.email) { %>
+                    <div class="invalid-feedback">
+                        <%= validationErrors.email %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password" class="form-label">
+                    Password
+                </label>
+                <input type="password" name="password" id="password"
+                       class="form-control <%= validationErrors.password ? 'is-invalid' : '' %>"
+                       placeholder="Enter password"
+                       value="<%= inputValues.password || '' %>">
+                <% if (validationErrors.password) { %>
+                    <div class="invalid-feedback">
+                        <%= validationErrors.password %>
+                    </div>
+                <% } %>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password" class="form-label">
+                    Confirm Password
+                </label>
+                <input type="password" name="confirm_password" id="confirm-password"
+                       class="form-control <%= validationErrors.confirm_password ? 'is-invalid' : '' %>"
+                       placeholder="Enter confirm password"
+                       value="<%= inputValues.confirm_password || '' %>">
+                <% if (validationErrors.confirm_password) { %>
+                    <div class="invalid-feedback">
+                        <%= validationErrors.confirm_password %>
+                    </div>
+                <% } %>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <a href="/login" class="btn btn-info">
+                <i class="fas fa-sign-in"></i>
+                Login Now
+            </a>
+            <button class="btn btn-primary float-end">
+                Register
+                <i class="fas fa-sign-in"></i>
+            </button>
+        </div>
+    </form>
+</div>
+
+<%- include('../layouts/footer') %>
